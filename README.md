@@ -1,1 +1,1 @@
-# Flask-Firebase-Quiz-App
+# Flask-Firebase-Practice-App
