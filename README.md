@@ -1,3 +1,4 @@
 # Flask-Firebase-Practice-App
-pip install firebase-admin
 Added serviceAccountKey.json in a .gitignore
+install node
+npm install firebase
