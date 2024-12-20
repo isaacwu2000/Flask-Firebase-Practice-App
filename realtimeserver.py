@@ -2,7 +2,7 @@ import firebase_admin
 from firebase_admin import credentials, db
 
 # Path to your service account key JSON file
-cred = credentials.Certificate("path/to/serviceAccountKey.json")
+cred = credentials.Certificate("serviceAccountKey.json")
 
 # Initialize the Firebase Admin SDK
 firebase_admin.initialize_app(cred, {
