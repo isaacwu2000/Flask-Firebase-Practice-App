@@ -1,5 +1,5 @@
 import firebase_admin
-from firebase_admin import credentials, auth
+from firebase_admin import credentials, firestore
 
 # Initialize Firebase Admin SDK
 cred = credentials.Certificate('serviceAccountKey.json')
@@ -11,5 +11,10 @@ db = firestore.client()
 collection_ref = db.collection('users')
 docs = collection_ref.stream()
 
+# Converting the docs into a list of dictionaries
+languages = []
 for doc in docs:
-    print(f'{doc.id} => {doc.to_dict()}')
+    language = doc.to_dict()
+    language['name'] = doc.id
+    languages.append(language)
+print(languages)
