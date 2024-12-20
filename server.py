@@ -1,7 +1,17 @@
-from firebase import firebase
-firebase = firebase.FirebaseApplication('https://flask-firebase-practice-app-default-rtdb.firebaseio.com/', None)
+import firebase_admin
+from firebase_admin import credentials, db
 
-@app.route("/")
-def home():
-  result = firebase.get('/restaurants', None)
-  return str(result)
+# Path to your service account key JSON file
+cred = credentials.Certificate("path/to/serviceAccountKey.json")
+
+# Initialize the Firebase Admin SDK
+firebase_admin.initialize_app(cred, {
+    'databaseURL': 'https://flask-firebase-practice-app-default-rtdb.firebaseio.com'
+})
+
+# Reference to the root of the database
+ref = db.reference('/')
+
+# Reading data from the database
+data = ref.get()
+print("Data from Firebase:", data)
